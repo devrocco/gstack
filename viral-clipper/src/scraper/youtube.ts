@@ -46,7 +46,16 @@ export async function scrapeYouTube(keywords: string[]): Promise<ClipCandidate[]
   const videoIds: string[] = [];
   const snippetMap = new Map<string, YTSearchItem['snippet'] & { channelTitle: string }>();
 
-  for (const keyword of keywords.slice(0, 3)) {
+  // Always inject category anchors so all 5 content pillars get coverage
+  // even if user's custom keywords only mention one category
+  const categoryAnchors = [
+    'World Cup 2026 highlights',
+    'football wonderkid 2026',
+    'viral football reaction',
+  ];
+  const allKeywords = [...new Set([...keywords, ...categoryAnchors])];
+
+  for (const keyword of allKeywords.slice(0, 6)) {
     const params = new URLSearchParams({
       part: 'snippet',
       q: keyword,

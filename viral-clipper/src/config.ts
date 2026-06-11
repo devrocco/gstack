@@ -63,7 +63,14 @@ export const config = {
   reddit: {
     clientId: process.env['REDDIT_CLIENT_ID'],
     clientSecret: process.env['REDDIT_CLIENT_SECRET'],
-    subreddits: ['soccer', 'worldcup', 'sports'],
+    // Covers all 5 content categories
+    subreddits: [
+      'soccer',           // viral moments, reactions, World Cup
+      'worldcup',         // World Cup 2026 content
+      'football',         // UK football / stories / wonderkids
+      'sports',           // cross-sport viral moments
+      'footballhighlights', // dedicated highlight clips
+    ],
     minUpvotes: 100,
   },
   dataDir: process.env['DATA_DIR'] ?? `${process.env['HOME']}/.viral-clipper`,
