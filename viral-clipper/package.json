@@ -1,0 +1,21 @@
+{
+  "name": "viral-clipper",
+  "version": "1.0.0",
+  "description": "FIFA viral moment scouter → Vugola AI clip generator → multi-platform publisher",
+  "type": "module",
+  "scripts": {
+    "start": "bun src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "run:scout": "bun src/index.ts run",
+    "run:draft": "bun src/index.ts run --draft",
+    "schedule": "bun src/index.ts schedule",
+    "status": "bun src/index.ts status",
+    "accounts": "bun src/index.ts accounts"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node-cron": "^3.0.11"
+  }
+}
