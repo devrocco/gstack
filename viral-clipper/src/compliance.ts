@@ -29,6 +29,7 @@ export function checkCompliance(c: ClipCandidate): ComplianceResult {
   // In metadata_only mode, block everything that isn't explicitly licensed/owned
   if (config.safety.licenseMode === 'metadata_only' &&
       c.sourceType !== 'licensed' && c.sourceType !== 'user_owned') {
+    c.copyrightRiskScore = riskScore;
     return {
       approved: false,
       riskScore,
